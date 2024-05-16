@@ -1,0 +1,30 @@
+---
+apiVersion: api.cerbos.dev/v1
+resourcePolicy:
+  version: "default"
+  importDerivedRoles:
+    - custom-roles
+  resource: post
+  rules:
+    # Any user can create a new post 
+    - actions: ["CREATE"]
+      roles:
+        - user
+        - admin
+      effect: EFFECT_ALLOW
+
+    # A post can only be viewed by the user who created it or the admin.
+    - actions: ["VIEW"]
+      derivedRoles:
+        - post-owner
+      roles:
+        - admin
+      effect: EFFECT_ALLOW
+
+    # A post can only be updated/deleted by the user who created it or the admin.
+    - actions: ["UPDATE", "DELETE"]
+      derivedRoles:
+        - post-owner
+      roles:
+        - admin
+      effect: EFFECT_ALLOW
