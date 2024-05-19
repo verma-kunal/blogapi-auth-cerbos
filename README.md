@@ -60,7 +60,7 @@ Once the project is running, you can interact with the API using tools like cURL
     ```
 - **Delete a Post:**  
     ```bash
-    curl -i -u kunal:kunalPass -XDELETE http://localhost:8080/posts/1
+    curl -i -u kunal:kunalPass -X DELETE http://localhost:8080/posts/1
     ```
     
 ## Contributing

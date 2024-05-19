@@ -1,4 +1,3 @@
----
 apiVersion: "api.cerbos.dev/v1"
 derivedRoles:
   name: custom-roles
